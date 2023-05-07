@@ -1,4 +1,4 @@
-NAME = mailtop/passenger
+NAME = mailtop/mt-passenger
 VERSION = 2.7.7
 # Extra flags for docker build, usable via environment variable.
 # Example: `export EXTRA_BUILD_FLAGS=--no-cache; make build_all`
