@@ -1,5 +1,6 @@
 FROM phusion/baseimage:master
-MAINTAINER Phusion <info@phusion.nl>
+MAINTAINER Mailtop <joao.scotto@mailtop.com.br>
+LABEL versao="2.7.7"
 
 ADD . /pd_build
 RUN /pd_build/install.sh
