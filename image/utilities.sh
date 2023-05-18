@@ -10,7 +10,13 @@ run minimal_apt_get_install git
 run minimal_apt_get_install netbase
 
 # Install wkhtmltopdf
-# https://github.com/wkhtmltopdf/packaging/issues/98
+
+#amd64
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb \
+  && dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb \
+  && rm wkhtmltox_0.12.6-1.focal_amd64.deb
+
+#arm64 https://github.com/wkhtmltopdf/packaging/issues/98
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.stretch_arm64.deb \
   && dpkg -i wkhtmltox_0.12.6-1.stretch_arm64.deb \
   && rm wkhtmltox_0.12.6-1.stretch_arm64.deb
