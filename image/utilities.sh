@@ -18,6 +18,9 @@ run minimal_apt_get_install libcurl4-openssl-dev libfontenc1 xfonts-75dpi xfonts
                             libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
                             libstdc++6 libx11-6 libxtst6 lsb-release wget xdg-utils
 
+RUN wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb \
+  && dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+
 #amd64
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb \
   && dpkg -i wkhtmltox_0.12.6-1.focal_amd64.deb \
@@ -27,6 +30,10 @@ RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkh
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_arm64.deb \
   && dpkg -i wkhtmltox_0.12.6.1-2.jammy_arm64.deb \
   && rm wkhtmltox_0.12.6.1-2.jammy_arm64.deb
+
+# imagemagick
+run minimal_apt_get_install imagemagick
+run apt-get update && minimal_apt_get_install libmagickwand-dev
 
 # Nodejs
 run curl -sL https://deb.nodesource.com/setup_16.x | bash -
